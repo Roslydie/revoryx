@@ -5,9 +5,9 @@
                 <div class="site-footer__grid">
                     <section class="site-footer__identity">
                         <router-link to="/" class="site-footer__logo">
-                            <img :src="'/assets/images/logo_blanc.png'" alt="Revoryx &amp; Partners">
+                            <img :src="'/assets/images/Logo_revoryx_clair.png'" alt="Revoryx &amp; Partners">
                         </router-link>
-                        <p>{{ _e(`footer.vue_1789383437172_0`, `Digital strategy and practical solutions for organizations ready to move forward.`) }}</p>
+                        <p>{{ _e(`footer.vue_1789383437172_0`, `We identify where your marketing is losing revenue, and we fix it.`) }}</p>
                         <div class="site-footer__socials" aria-label="Social networks">
                             <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
                             <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
@@ -21,29 +21,31 @@
                             <li><router-link to="/">{{ _e(`header.vue_1789383437179_15`, `Home`) }}</router-link></li>
                             <li><router-link to="/about">{{ _e(`header.vue_1789383437179_16`, `About`) }}</router-link></li>
                             <li><router-link to="/service">{{ _e(`header.vue_1789383437179_17`, `Service`) }}</router-link></li>
-                            <li><router-link to="/project">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link></li>
-                            <li><router-link to="/blog">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link></li>
+                            <li v-if="false"><router-link to="/project">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link></li>
+                            <li v-if="false"><router-link to="/blog">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link></li>
                             <li><router-link to="/contact">{{ _e(`header.vue_1789383437179_20`, `Contact`) }}</router-link></li>
                             <li><router-link to="/admin" target="_blank" rel="noopener noreferrer">{{ _e(`footer.vue_1789383437172_8`, `Admin panel`) }}</router-link></li>
                         </ul>
                     </nav>
 
                     <section class="site-footer__contact">
-                        <h2 class="site-footer__title"> {{ _e(`footer.vue_1789383437172_9`, `Let\'s connect`) }}</h2>
+                        <h2 class="site-footer__title"> {{ _e(`footer.vue_1789383437172_9`, `Let's connect`) }}</h2>
                         <p>3506 S 61st<br>Philadelphia, PA 19153</p>
                         <a href="tel:+12159890101">+1 (215) 989-0101</a>
-                        <a href="mailto:techr7129@gmail.com">techr7129@gmail.com</a>
+                        <a href="mailto:contact@revoryxandpartners.com">contact@revoryxandpartners.com</a>
                     </section>
 
                     <section class="site-footer__newsletter">
                         <h2 class="site-footer__title"> {{ _e(`footer.vue_1789383437172_10`, `Stay in the loop`) }}</h2>
-                        <p>{{ _e(`footer.vue_1789383437173_11`, `Get occasional insights, news and practical ideas from our team.`) }}</p>
-                        <form class="site-footer__form" @submit.prevent>
+                        <p>{{ _e(`footer.vue_1789383437173_11`, `A monthly breakdown of the most common revenue leaks in small and medium-sized businesses, without any marketing jargon.`) }}</p>
+                        <form class="site-footer__form" @submit.prevent="subscribeToNewsletter">
                             <label for="footer-newsletter-email">{{ _e(`footer.vue_1789383437173_12`, `Subscribe to our newsletter`) }}</label>
                             <div class="site-footer__form-row">
-                                <input id="footer-newsletter-email" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
-                                <button type="submit" aria-label="Subscribe"><i class="fa fa-long-arrow-right"></i></button>
+                                <input v-model.trim="newsletterEmail" id="footer-newsletter-email" type="email" name="email" placeholder="Your email address" autocomplete="email" required :disabled="newsletterLoading">
+                                <button type="submit" aria-label="Subscribe" :disabled="newsletterLoading"><i class="fa fa-long-arrow-right"></i></button>
                             </div>
+                            <p v-if="newsletterMessage" class="site-footer__feedback site-footer__feedback--success">{{ newsletterMessage }}</p>
+                            <p v-if="newsletterError" class="site-footer__feedback site-footer__feedback--error">{{ newsletterError }}</p>
                         </form>
                     </section>
                 </div>
@@ -58,7 +60,35 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { getCurrentLocale } from '../../plugins/i18n.js';
+import { postData } from '../../plugins/axios.js';
+
 const currentYear = new Date().getFullYear();
+const newsletterEmail = ref('');
+const newsletterLoading = ref(false);
+const newsletterMessage = ref('');
+const newsletterError = ref('');
+
+const subscribeToNewsletter = async () => {
+    newsletterLoading.value = true;
+    newsletterMessage.value = '';
+    newsletterError.value = '';
+
+    try {
+        const response = await postData('/newsletter/subscribe', {
+            email: newsletterEmail.value,
+            language: getCurrentLocale() === 'en' ? 'en' : 'fr',
+        });
+
+        newsletterMessage.value = response.message;
+        newsletterEmail.value = '';
+    } catch (error) {
+        newsletterError.value = error.response?.data?.message || 'Unable to subscribe right now.';
+    } finally {
+        newsletterLoading.value = false;
+    }
+};
 </script>
 
 <style scoped>
@@ -180,6 +210,26 @@ const currentYear = new Date().getFullYear();
     background: transparent;
     border: 0;
     cursor: pointer;
+}
+
+.site-footer__form button:disabled,
+.site-footer__form input:disabled {
+    cursor: wait;
+    opacity: .65;
+}
+
+.site-footer__feedback {
+    margin: 10px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.site-footer__feedback--success {
+    color: #9ee2bd;
+}
+
+.site-footer__feedback--error {
+    color: #ffb8b0;
 }
 
 .site-footer__bottom {

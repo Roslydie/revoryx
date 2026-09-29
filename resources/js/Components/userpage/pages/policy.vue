@@ -43,7 +43,7 @@
 
                             <a
                                 class="policy-summary__link"
-                                href="mailto:techr7129@gmail.com"
+                                href="mailto:mailto:contact@revoryxandpartners.com"
                             >
                                 {{ _e(`policy.vue_1789433978343_244`, `Have a question? Contact us`) }}
                                 <i class="fa fa-long-arrow-right"></i>
@@ -110,7 +110,7 @@
 
                 <a
                     class="policy-callout__button"
-                    href="mailto:techr7129@gmail.com"
+                    href="mailto:contact@revoryxandpartners.com"
                 >
                     {{ _e(`policy.vue_1789433978343_248`, `Email our team`) }}
                     <i class="fa fa-envelope-o"></i>
@@ -241,7 +241,7 @@ const sections = computed(() => [
     {
         title: _e(`policy.vue_1789433978343_267`, `Contact us`),
         paragraphs: [
-            _e(`policy.vue_1789433978343_268`, `If you have a question about this Privacy Policy or want to exercise a privacy right, please contact Revoryx & Partners at techr7129@gmail.com or +1 (215) 989-0101. You can also write to us at 3506 S 61st, Philadelphia, PA 19153.`)
+            _e(`policy.vue_1789433978343_268`, `If you have a question about this Privacy Policy or want to exercise a privacy right, please contact Revoryx & Partners at contact@revoryxandpartners.com or +1 (215) 989-0101. You can also write to us at 3506 S 61st, Philadelphia, PA 19153.`)
         ],
     },
 ]);
@@ -287,7 +287,7 @@ const sections = computed(() => [
 
 .policy-kicker {
     margin: 0 0 13px;
-    color: #0c5adb;
+    color: #0B2545;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -343,13 +343,13 @@ const sections = computed(() => [
     width: 55px;
     height: 4px;
     margin: 20px 0;
-    background: #0c5adb;
+    background: #0B2545;
 }
 
 .policy-summary__link {
     display: inline-block;
     margin-top: 14px;
-    color: #0c5adb;
+    color: #0B2545;
     font-weight: 700;
 }
 
@@ -381,7 +381,7 @@ const sections = computed(() => [
 }
 
 .policy-section__number {
-    color: #0c5adb;
+    color: #0B2545;
     font-size: 22px;
     font-weight: 700;
 }
@@ -415,7 +415,7 @@ const sections = computed(() => [
 .policy-callout {
     padding: 78px 0;
     color: #fff;
-    background: linear-gradient(110deg, #061d43, #0c5adb);
+    background: linear-gradient(110deg, #061d43, #0B2545);
 }
 
 .policy-callout__inner {

@@ -58,10 +58,10 @@ onMounted(() => {
 .lang-switcher button { font: inherit; }
 .lang-switcher__button, .lang-switcher__option { display: flex; align-items: center; border: 0; cursor: pointer; }
 .lang-switcher__button { gap: 7px; min-width: 68px; padding: 9px 10px; border: 1px solid #dce5f1; border-radius: 3px; color: #232323; background: #fff; font-size: 12px; font-weight: 700; }
-.lang-switcher__button i { margin-left: auto; color: #0c5adb; }
+.lang-switcher__button i { margin-left: auto; color: #0B2545; }
 .lang-switcher__options { position: absolute; top: calc(100% + 8px); right: 0; z-index: 40; min-width: 130px; padding: 6px; border: 1px solid #dce5f1; border-radius: 3px; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .12); }
 .lang-switcher__option { gap: 9px; width: 100%; padding: 8px 9px; color: #555; background: transparent; text-align: left; }
-.lang-switcher__option:hover, .lang-switcher__option.active { color: #0c5adb; background: #f2f6fc; }
+.lang-switcher__option:hover, .lang-switcher__option.active { color: #0B2545; background: #f2f6fc; }
 .techno_nav_manu.sticky .lang-switcher__button { border-color: rgba(255, 255, 255, .35); color: #fff; background: transparent; }
 @media (max-width: 767px) { .lang-switcher__options { right: auto; left: 0; } }
 </style>

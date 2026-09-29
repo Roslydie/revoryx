@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap");
+
 html,
 body {
   overflow-x: hidden;
@@ -7,9 +9,16 @@ body {
   margin: 0;
   color: #616161;
   background: #fff;
-  font-family: "Muli", Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.65;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 img {
@@ -22,7 +31,7 @@ a {
 }
 
 .header_top_menu {
-  background: #0c5adb;
+  background: #0B2545;
   color: #fff;
   font-size: 13px;
 }
@@ -171,9 +180,20 @@ a {
   border: 0;
   border-radius: 3px;
   color: #fff;
-  background: #0c5adb;
+  background: #0B2545;
+  font-size: 15px;
   font-weight: 600;
   transition: transform .25s ease, background .25s ease;
+}
+
+.about-stat-row strong,
+.process-card__number,
+.contact-intro-item__number,
+.project-intro-point__number,
+.service-card__number,
+.policy-section__number {
+  font-family: "IBM Plex Mono", monospace;
+  text-align: right;
 }
 
 .donate-btn-header .dtbtn:hover,
@@ -216,14 +236,18 @@ a {
 
 .slider_text_inner h1 {
   margin: 0;
-  font-size: clamp(36px, 5vw, 68px);
+  font-size: clamp(37px, 5vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
   line-height: 1.12;
 }
 
 .slider_text_inner h5 {
   margin-bottom: 18px;
   color: #66a5ff;
-  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -235,7 +259,7 @@ a {
 
 .slider_button .button a.active {
   background: #fff;
-  color: #0c5adb;
+  color: #0B2545;
 }
 
 .top_feature {
@@ -285,8 +309,8 @@ a {
   height: 82px;
   border-radius: 50%;
   color: #fff;
-  background: #0c5adb;
-  box-shadow: 0 10px 22px rgba(12, 90, 219, .28);
+  background: #0B2545;
+  box-shadow: 0 10px 22px rgba(11, 37, 69, .28);
   font-size: 38px;
   line-height: 1;
 }
@@ -300,13 +324,13 @@ a {
 
 .techno_flipbox_back .techno_flipbox_icon .icon {
   background: #fff;
-  color: #0c5adb;
+  color: #0B2545;
   box-shadow: none;
 }
 
 .techno_flipbox_back {
   color: #fff;
-  background: #0c5adb !important;
+  background: #0B2545 !important;
   transform: rotateY(180deg);
 }
 
@@ -322,6 +346,7 @@ a {
   margin: 12px 0;
   color: #232323;
   font-size: 21px;
+  font-weight: 500;
 }
 
 .techno_flipbox_back .flipbox_title h3,
@@ -337,7 +362,7 @@ a {
 .flipbox_area:not(.top_feature) .techno_flipbox_font,
 .flipbox_area:not(.top_feature) .techno_flipbox_back {
   padding: 38px 34px;
-  border: 1px solid #0c5adb;
+  border: 1px solid #0B2545;
   border-radius: 8px;
 }
 
@@ -358,7 +383,8 @@ a {
 .section_main_title h1 {
   margin: 0 0 4px;
   color: #232323;
-  font-size: 38px;
+  font-size: 36px;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -369,15 +395,18 @@ a {
 
 .section_sub_title h6 {
   margin: 0 0 10px;
-  color: #0c5adb;
-  letter-spacing: 1px;
+  color: #0B2545;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .em_bar {
   width: 55px;
   height: 4px;
   margin-top: 18px;
-  background: #0c5adb;
+  background: #0B2545;
 }
 
 .about_area,
@@ -451,7 +480,7 @@ a {
 }
 
 .how_it_work .section_sub_title h6 {
-  color: #0c5adb;
+  color: #0B2545;
   font-size: 13px;
   letter-spacing: 2px;
 }
@@ -475,8 +504,8 @@ a {
 }
 
 .how_it_work .single_it_work:hover .single_it_work_content {
-  border-color: #0c5adb;
-  box-shadow: 0 18px 35px rgba(12, 90, 219, .16);
+  border-color: #0B2545;
+  box-shadow: 0 18px 35px rgba(11, 37, 69, .16);
   transform: translateY(-8px);
 }
 
@@ -498,8 +527,8 @@ a {
   border: 5px solid #fff;
   border-radius: 50%;
   color: #fff;
-  background: #0c5adb;
-  box-shadow: 0 0 0 1px #0c5adb, 0 8px 18px rgba(12, 90, 219, .25);
+  background: #0B2545;
+  box-shadow: 0 0 0 1px #0B2545, 0 8px 18px rgba(11, 37, 69, .25);
   font-size: 24px;
   font-weight: 700;
   line-height: 1;

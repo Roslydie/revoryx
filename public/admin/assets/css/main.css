@@ -234,14 +234,16 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.03);
 }
 
-.sidebar-menu-link.active {
+.sidebar-menu-link.active,
+.sidebar-menu-link.router-link-active {
     color: #FFFFFF;
     background-color: rgba(255, 255, 255, 0.05);
     font-weight: 600;
 }
 
 /* Vertical indicator border on left edge */
-.sidebar-menu-link.active::before {
+.sidebar-menu-link.active::before,
+.sidebar-menu-link.router-link-active::before {
     content: '';
     position: absolute;
     left: -1.5rem;
@@ -252,7 +254,8 @@ a:hover {
     border-radius: 0 4px 4px 0;
 }
 
-.sidebar-menu-link.active i {
+.sidebar-menu-link.active i,
+.sidebar-menu-link.router-link-active i {
     color: var(--brand-lime);
 }
 

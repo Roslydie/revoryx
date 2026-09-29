@@ -4,20 +4,26 @@ const axiosInstance = axios.create({
     baseURL: '/api'
 })
 
+const isPublicRequest = (url = '') => (
+    url.startsWith('/public/') ||
+    url === '/newsletter/subscribe' ||
+    url.startsWith('/newsletter/unsubscribe/') ||
+    url === '/contacts'
+);
+
 axiosInstance.interceptors.request.use(config => {
     const token = localStorage.getItem('token');
     const expiresAt = Number(localStorage.getItem('token_expires_at') || 0);
     const isLoginRequest = config.url?.endsWith('/login');
+    const publicRequest = isPublicRequest(config.url);
 
     if (token && !isLoginRequest && (!expiresAt || expiresAt <= Date.now())) {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         localStorage.removeItem('token_expires_at');
-        window.location.href = '/admin/login?unauthorized=true';
-        return Promise.reject(new axios.Cancel('Authentication token expired'));
     }
 
-    if (token) {
+    if (token && !publicRequest) {
         config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
@@ -28,8 +34,9 @@ axiosInstance.interceptors.response.use(
     response => response,
     error => {
         const isLoginRequest = error.config?.url?.endsWith('/login');
+        const publicRequest = isPublicRequest(error.config?.url);
 
-        if (error.response && error.response.status === 401 && !isLoginRequest) {
+        if (error.response && error.response.status === 401 && !isLoginRequest && !publicRequest) {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
             localStorage.removeItem('token_expires_at');

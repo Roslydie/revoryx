@@ -4,53 +4,85 @@ const _e = (key, fallback = key) => (
     i18n.global.te(key) ? i18n.global.t(key) : fallback
 );
 
-export const services = [
+export const getServices = () => [
     {
-        slug: 'web-development',
-        title: _e(`services.js_1789424760527_0`, `Web Development`),
-        icon: 'flaticon-code',
-        short: _e(`services.js_1789424760527_1`, `Modern, responsive websites and web applications tailored to your business needs.`),
-        description: _e(`services.js_1789424760527_2`, `From corporate websites to custom web applications, we build secure, scalable and user-friendly digital experiences that help your organization move forward.`),
-        points: [_e(`services.js_1789424760527_3`, `Responsive digital experiences`), _e(`services.js_1789424760527_4`, `Secure and maintainable architecture`), _e(`services.js_1789424760527_5`, `Solutions designed around your users`)],
+        slug: 'performance-audit',
+        title: _e(`home.vue_1789384786151_54`, `Performance Audit`),
+        icon: 'flaticon-analysis',
+        short: _e(`home.vue_1789384786151_55`, `We audit your advertising data from the past 12 months, your lead generation, and your CRM to pinpoint exactly where revenue is being lost.`),
+        description: [
+            _e('service.performance-audit.description-1', `We analyze your entire sales funnel from lead generation to the completed sale to identify where performance is actually declining.`),
+            _e('service.performance-audit.description-2', `We review your advertising performance, map the lead journey, and locate and quantify revenue leaks.`),
+        ],
+        points: [
+            _e('service.performance-audit.point-1', `A comprehensive map of your marketing-to-sales funnel`),
+            _e('service.performance-audit.point-2', `Estimated amount of lost income, in dollars`),
+            _e('service.performance-audit.point-3', `A list of data breaches ranked by financial impact`),
+        ],
+        metrics: [
+            { number: '01', text: _e('service.performance-audit.metric-1', `12 months of performance data`) },
+            { number: '02', text: _e('service.performance-audit.metric-2', `Revenue leaks quantified`) },
+            { number: '03', text: _e('service.performance-audit.metric-3', `Marketing-to-sales funnel mapped`) },
+        ],
     },
     {
-        slug: 'seo-digital-visibility',
-        title: _e(`services.js_1789424760527_6`, `SEO & Digital Visibility`),
-        icon: 'flaticon-bar-chart',
-        short: _e(`services.js_1789424760527_7`, `Strategic SEO, content optimization and search positioning that improve your reach.`),
-        description: _e(`services.js_1789424760527_8`, `We help your business reach the right audience and build a stronger presence across search engines and digital channels.`),
-        points: [_e(`services.js_1789424760527_9`, `Search visibility strategy`), _e(`services.js_1789424760527_10`, `Content and technical optimization`), _e(`services.js_1789424760527_11`, `Continuous performance improvement`)],
+        slug: 'recovery-plan',
+        title: _e(`home.vue_1789384786151_59`, `Recovery Plan`),
+        icon: 'flaticon-report',
+        short: _e(`home.vue_1789384786151_60`, `A prioritized 90 day action plan, ranked by financial impact and ease of implementation, so you know exactly what to address first.`),
+        description: [
+            _e('service.recovery-plan.description-1', `Based on the assessment, we develop a concrete plan that ranks each corrective action by financial impact, urgency, and ease of implementation.`),
+            _e('service.recovery-plan.description-2', `You know exactly what will pay off the fastest, and what can wait.`),
+        ],
+        points: [
+            _e('service.recovery-plan.point-1', `A list of actions ranked by impact and effort`),
+            _e('service.recovery-plan.point-2', `A 90 day implementation schedule`),
+            _e('service.recovery-plan.point-3', `An estimate of earnings per share`),
+        ],
+        metrics: [
+            { number: '01', text: _e('service.recovery-plan.metric-1', `Clear Priorities`) },
+            { number: '02', text: _e('service.recovery-plan.metric-2', `90 Day Plan`) },
+            { number: '03', text: _e('service.recovery-plan.metric-3', `Impact, in figures per share`) },
+        ],
     },
     {
-        slug: 'custom-digital-solutions',
-        title: _e(`services.js_1789424760527_12`, `Custom Digital Solutions`),
-        icon: 'flaticon-intelligent',
-        short: _e(`services.js_1789424760527_13`, `Tailor-made applications, automation tools and management systems for your operations.`),
-        description: _e(`services.js_1789424760527_14`, `We transform your business requirements into reliable digital tools designed to improve productivity, efficiency and decision-making.`),
-        points: [_e(`services.js_1789424760527_15`, `Business process automation`), _e(`services.js_1789424760527_16`, `Custom management platforms`), _e(`services.js_1789424760527_17`, `Scalable technical foundations`)],
+        slug: 'recovery-implementation',
+        title: _e(`home.vue_1789384786151_64`, `Recovery Implementation`),
+        icon: 'flaticon-process',
+        short: _e(`home.vue_1789384786151_65`, `We work with you to implement the necessary adjustments: tracking, landing pages, CRM automations, and training for the customer service team.`),
+        description: [
+            _e('service.recovery-implementation.description-1', `We implement the identified fixes ourselves: tracking configuration, landing page creation, CRM automations, and intake scripts.`),
+            _e('service.recovery-implementation.description-2', `We work directly with your team to ensure that the new processes are adopted not just implemented.`),
+        ],
+        points: [
+            _e('service.recovery-implementation.point-1', `Properly Configured Tracking and Attribution`),
+            _e('service.recovery-implementation.point-2', `Existing CRM automations and intake scripts`),
+            _e('service.recovery-implementation.point-3', `Your team trained in the new processes`),
+        ],
+        metrics: [
+            { number: '01', text: _e('service.recovery-implementation.metric-1', `Direct Execution`) },
+            { number: '02', text: _e('service.recovery-implementation.metric-2', `Team training included`) },
+            { number: '03', text: _e('service.recovery-implementation.metric-3', `Implementation Monitoring`) },
+        ],
     },
     {
-        slug: 'mobile-app-development',
-        title: _e(`services.js_1789424760527_18`, `Mobile App Development`),
-        icon: 'flaticon-smartphone',
-        short: _e(`services.js_1789424760527_19`, `Intuitive, high-performance mobile applications for seamless digital experiences.`),
-        description: _e(`services.js_1789424760527_20`, `Our mobile solutions are designed to engage users while meeting the specific needs of your business across modern devices.`),
-        points: [_e(`services.js_1789424760527_21`, `User-centered mobile journeys`), _e(`services.js_1789424760527_22`, `Fast and reliable interfaces`), _e(`services.js_1789424760527_23`, `Experiences ready to scale`)],
-    },
-    {
-        slug: 'digital-marketing',
-        title: _e(`services.js_1789424760527_24`, `Digital Marketing`),
-        icon: 'flaticon-content-writing',
-        short: _e(`services.js_1789424760527_25`, `Targeted campaigns and content strategies that strengthen your brand and create opportunity.`),
-        description: _e(`services.js_1789424760527_26`, `We connect your brand with its audience through effective digital campaigns, compelling content and measurable marketing initiatives.`),
-        points: [_e(`services.js_1789424760527_27`, `Campaign and content planning`), _e(`services.js_1789424760527_28`, `Brand consistency across channels`), _e(`services.js_1789424760527_29`, `Data-informed optimization`)],
-    },
-    {
-        slug: 'it-consulting',
-        title: _e(`services.js_1789424760527_30`, `IT Consulting & Digital Transformation`),
-        icon: 'flaticon-business-and-finance',
-        short: _e(`services.js_1789424760527_31`, `Strategic technology guidance to modernize operations and support sustainable growth.`),
-        description: _e(`services.js_1789424760527_32`, `We help organizations choose the right technologies, optimize processes and adopt efficient digital solutions with confidence.`),
-        points: [_e(`services.js_1789424760527_33`, `Technology and process audits`), _e(`services.js_1789424760527_34`, `Transformation roadmaps`), _e(`services.js_1789424760527_35`, `Practical change management`)],
+        slug: 'performance-management',
+        title: _e(`home.vue_1789384786151_69`, `Performance Management`),
+        icon: 'flaticon-analytics',
+        short: _e(`home.vue_1789384786151_70`, `Monthly monitoring of ROI and lead quality to continue improving the areas that have already been addressed.`),
+        description: [
+            _e('service.performance-management.description-1', `We monitor your conversion metrics, automations, and lead quality on a monthly basis to ensure that the performance gains you’ve achieved don’t decline over time.`),
+            _e('service.performance-management.description-2', ` We continuously adjust as your volume, campaigns, or team evolve.`),
+        ],
+        points: [
+            _e('service.performance-management.point-1', `A monthly report on ROI and recovered revenue`),
+            _e('service.performance-management.point-2', `Regular audits of call recordings and intake`),
+            _e('service.performance-management.point-3', `Continuous monitoring of existing automation systems`),
+        ],
+        metrics: [
+            { number: '01', text: _e('service.performance-management.metric-1', `Monthly Follow-Up`) },
+            { number: '02', text: _e('service.performance-management.metric-2', `Continuous adjustment`) },
+            { number: '03', text: _e('service.performance-management.metric-3', `Reporting on Actual ROI`) },
+        ],
     },
 ];

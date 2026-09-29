@@ -88,24 +88,24 @@ onMounted(() => loadProject(route.params.slug));
 .single-project-hero__content { position: relative; z-index: 1; width: 100%; padding-bottom: 82px; animation: projectReveal .8s ease both; }
 .single-project__back { display: inline-block; margin-bottom: 38px; color: #fff; font-weight: 700; }
 .single-project__back i { margin-right: 8px; }
-.project-kicker { margin: 0 0 13px; color: #0c5adb; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.project-kicker { margin: 0 0 13px; color: #0B2545; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
 .single-project-hero .project-kicker { color: #65d5a0; }
 .single-project-hero h1 { max-width: 900px; margin: 0 0 18px; color: #fff; font-size: clamp(40px, 6vw, 72px); line-height: 1.08; }
 .single-project-hero p:not(.project-kicker) { max-width: 700px; margin: 0; color: rgba(255, 255, 255, .82); font-size: 19px; line-height: 1.7; }
 .single-project-body { background: #fff; }
 .project-article h2 { margin: 0 0 18px; color: #232323; font-size: clamp(30px, 4vw, 45px); line-height: 1.2; }
-.project-rule { width: 55px; height: 4px; margin: 24px 0; background: #0c5adb; }
+.project-rule { width: 55px; height: 4px; margin: 24px 0; background: #0B2545; }
 .project-content { font-size: 17px; line-height: 1.9; }
 .project-content :deep(p) { margin: 0 0 22px; }
 .project-content :deep(h2), .project-content :deep(h3) { margin: 34px 0 12px; color: #232323; line-height: 1.3; }
 .project-content :deep(img) { max-width: 100%; height: auto; }
-.project-contact { display: inline-block; margin-top: 20px; padding: 14px 22px; color: #fff; background: #0c5adb; font-weight: 700; }
+.project-contact { display: inline-block; margin-top: 20px; padding: 14px 22px; color: #fff; background: #0B2545; font-weight: 700; }
 .project-contact:hover { color: #fff; background: #00247e; }
 .project-contact i { margin-left: 8px; }
-.project-facts { padding: 32px 28px; border-top: 4px solid #0c5adb; background: #f7faff; }
+.project-facts { padding: 32px 28px; border-top: 4px solid #0B2545; background: #f7faff; }
 .project-facts > div { padding: 16px 0; border-top: 1px solid #dce5f1; }
 .project-facts small, .project-facts strong { display: block; }
-.project-facts small { margin-bottom: 4px; color: #0c5adb; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.project-facts small { margin-bottom: 4px; color: #0B2545; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
 .project-facts strong { color: #232323; font-size: 17px; }
 .project-gallery-section { padding: 90px 0; background: #f7faff; }
 .project-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }

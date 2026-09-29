@@ -8,7 +8,7 @@
               <div class="header_top_menu_address_inner">
                 <ul>
                   <li>
-                    <a href="mailto:techr7129@gmail.com"><i class="fa fa-envelope-o"></i>techr7129@gmail.com</a>
+                    <a href="mailto:contact@revoryxandpartners.com"><i class="fa fa-envelope-o"></i>contact@revoryxandpartners.com</a>
                   </li>
                   <li>
                     <a href="https://www.google.com/maps/search/?api=1&amp;query=3506+S+61st+Philadelphia+PA+19153" target="_blank" rel="noopener noreferrer"><i class="fa fa-map-marker"></i>3506 S 61st, Philadelphia, PA 19153</a>
@@ -55,7 +55,7 @@
         <div class="row align-items-center">
           <div class="menu">
             <router-link to="/" class="logo">
-              <img :src="isScrolled ? '/assets/images/logo_blanc.png' : '/assets/images/logo_norma.png'" alt="Revoryx &amp; Partners">
+              <img :src="isScrolled ? '/assets/images/Logo_revoryx_clair.png' : '/assets/images/Logo_revoryx_sombre.png'" alt="Revoryx &amp; Partners">
             </router-link>
             <ul class="clearfix">
               <li>
@@ -69,10 +69,10 @@
                 <router-link to="/service">{{ _e(`header.vue_1789383437179_17`, `Service`) }}</router-link>
                
               </li>
-                <li>
+                <li v-if="false">
                     <router-link to="/project">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link>
                 </li>
-              <li>
+              <li v-if="false">
                 <router-link to="/blog">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link>
               </li>
              
@@ -104,8 +104,8 @@
         <router-link to="/" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_15`, `Home`) }}</router-link>
         <router-link to="/about" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_16`, `About`) }}</router-link>
         <router-link to="/service" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_17`, `Service`) }}</router-link>
-        <router-link to="/project" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link>
-        <router-link to="/blog" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link>
+        <router-link v-if="false" to="/project" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link>
+        <router-link v-if="false" to="/blog" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link>
         <router-link to="/contact" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_20`, `Contact`) }}</router-link>
         <router-link to="/contact" class="mobile-site-header__cta" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_21`, `Get A Quote`) }} <i class="bi bi-arrow-right"></i></router-link>
         <div class="mobile-site-header__language"><Switcher /></div>
@@ -137,6 +137,10 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.header_top_menu {
+  background: #0B2545;
+}
+
 .techno_nav_manu.sticky {
   background: #061d43;
 }
@@ -151,6 +155,27 @@ onBeforeUnmount(() => {
 
 .techno_nav_manu.sticky .menu > ul > li > ul a {
   color: #fff;
+}
+
+.donate-btn-header .dtbtn {
+  border-radius: 0;
+  color: #fff;
+  background: #0B2545;
+}
+
+.donate-btn-header .dtbtn:hover {
+  color: #fff;
+  background: #061a32;
+}
+
+.techno_nav_manu.sticky .donate-btn-header .dtbtn {
+  color: #0B2545;
+  background: #F4F1EA;
+}
+
+.techno_nav_manu.sticky .donate-btn-header .dtbtn:hover {
+  color: #0B2545;
+  background: #e7e1d4;
 }
 
 .mobile-site-header {
@@ -213,13 +238,13 @@ onBeforeUnmount(() => {
     justify-content: space-between;
     padding: 14px 4px;
     border-bottom: 1px solid #edf1f4;
-    color: #123b6d;
+    color: #0B2545;
     font-size: 14px;
     font-weight: 700;
   }
 
   .mobile-site-header__nav > a.router-link-active {
-    color: #0c5adb;
+    color: #0B2545;
   }
 
   .mobile-site-header__nav .mobile-site-header__cta {
@@ -227,9 +252,9 @@ onBeforeUnmount(() => {
     gap: 8px;
     margin-top: 16px;
     border: 0;
-    border-radius: 6px;
+    border-radius: 0;
     color: #fff;
-    background: #0c5adb;
+    background: #0B2545;
   }
 
   .mobile-site-header__language {
@@ -243,7 +268,7 @@ onBeforeUnmount(() => {
     padding: 8px 24px 8px 10px;
     border: 1px solid #dce5f1;
     border-radius: 4px;
-    color: #123b6d;
+    color: #0B2545 ;
     background: #fff;
     font-size: 12px;
     font-weight: 700;
@@ -288,7 +313,7 @@ onBeforeUnmount(() => {
   bottom: 13px;
   left: 0;
   height: 2px;
-  background: #0c5adb;
+  background: #0B2545;
   content: '';
 }
 

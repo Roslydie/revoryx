@@ -16,10 +16,10 @@
                 <div class="service-detail__hero-actions">
                     <a
                         href="#request-service"
-                        class="service-detail__hero-button">{{ _e(`single_service.vue_1789429729220_219`, `Request a service`) }}
+                        class="service-detail__hero-button">{{ _e(`single_service.vue_1789429729220_219`, `Request an audit`) }}
                         <i class="fa fa-long-arrow-right"></i></a
                     ><span
-                        ><i class="fa fa-check-circle"></i>{{ _e(`single_service.vue_1789429729220_202`, `Built around your goals`) }}</span>
+                        ><i class="fa fa-check-circle"></i>{{ _e(`single_service.vue_1789429729220_202`, `Analyzed before being recommended`) }}</span>
                 </div>
             </div>
         </section>
@@ -28,22 +28,18 @@
                 <div class="row align-items-start">
                     <div class="col-lg-7">
                         <p class="service-detail__kicker">{{ _e(`single_service.vue_1789429729220_203`, `A FOCUSED APPROACH`) }}</p>
-                        <h2>{{ _e(`single_service.vue_1789429729220_204`, `Technology that serves your next move`) }}</h2>
+                        <h2>{{ _e(`single_service.vue_1789429729220_204`, `Know exactly where your budget is going before you spend any more`) }}</h2>
                         <div class="service-detail__rule"></div>
-                        <p class="service-detail__lead">
-                            {{ service.description }}
-                        </p>
-                        <p>{{ _e(`single_service.vue_1789429729220_205`, `We work closely with your team to create a solution that is clear to use, ready to evolve and connected to the outcomes that matter most. Every detail is shaped around usability, performance and long-term value.`) }}
-                        </p>
+                        <div class="service-detail__lead">
+                            <p v-for="description in service.description" :key="description">
+                                {{ description }}
+                            </p>
+                        </div>
+                        
                         <div class="service-detail__metrics">
-                            <div>
-                                <strong>01</strong><span> {{ _e(`single_service.vue_1789429729220_206`, `Clear direction`) }}</span>
-                            </div>
-                            <div>
-                                <strong>02</strong><span>{{ _e(`single_service.vue_1789429729220_207`, `Focused delivery`) }}</span>
-                            </div>
-                            <div>
-                                <strong>03</strong><span>{{ _e(`single_service.vue_1789429729220_208`, `Long-term value`) }}</span>
+                            <div v-for="metric in service.metrics" :key="metric.number">
+                                <strong>{{ metric.number }}</strong>
+                                <span>{{ metric.text }}</span>
                             </div>
                         </div>
                     </div>
@@ -77,8 +73,8 @@
             <div class="container">
                 <div class="section-heading text-center">
                     <p class="service-detail__kicker">{{ _e(`single_service.vue_1789429729220_211`, `THE VALUE WE BRING`) }}</p>
-                    <h2>{{ _e(`single_service.vue_1789429729220_212`, `More than delivery, a better way forward`) }}</h2>
-                    <p>{{ _e(`single_service.vue_1789429729220_213`, `We connect the right expertise, process and technology to make your project easier to move.`) }}
+                    <h2>{{ _e(`single_service.vue_1789429729220_212`, `More than just a report, it's a clear picture of what's costing you money`) }}</h2>
+                    <p>{{ _e(`single_service.vue_1789429729220_213`, `We combine advertising data, CRM data, and on-site audits to provide a comprehensive diagnosis, not just a rough estimate.`) }}
                     </p>
                 </div>
                 <div class="row">
@@ -100,7 +96,7 @@
             <div class="container">
                 <div class="section-heading text-center">
                     <p class="service-detail__kicker">{{ _e(`single_service.vue_1789429729220_214`, `OUR METHOD`) }}</p>
-                    <h2>{{ _e(`single_service.vue_1789429729220_215`, `From challenge to confident delivery`) }}</h2>
+                    <h2>{{ _e(`single_service.vue_1789429729220_215`, `From Your Data to Your Diagnosis`) }}</h2>
                 </div>
                 <div class="row">
                     <div
@@ -120,11 +116,11 @@
         <section id="request-service" class="service-detail__cta">
             <div class="container text-center">
                 <p class="service-detail__kicker">{{ _e(`single_service.vue_1789429729220_216`, `READY WHEN YOU ARE`) }}</p>
-                <h2>{{ _e(`single_service.vue_1789429729220_217`, `Let’s turn your next challenge into progress.`) }}</h2>
-                <p>{{ _e(`single_service.vue_1789429729220_218`, `Tell us what you want to improve. We will help you find the right starting point.`) }}
+                <h2>{{ _e(`single_service.vue_1789429729220_217`, `Let's find out together where your budget is going.`) }}</h2>
+                <p>{{ _e(`single_service.vue_1789429729220_218`, `Tell us where you think the problem lies. We'll check to see if that's really where the issue is.`) }}
                 </p>
                 <router-link to="/contact" class="service-detail__cta-button"
-                    > {{ _e(`single_service.vue_1789429729220_219`, `Request a service`) }} <i class="fa fa-long-arrow-right"></i
+                    > {{ _e(`single_service.vue_1789429729220_219`, `Request an audit`) }} <i class="fa fa-long-arrow-right"></i
                 ></router-link>
             </div>
         </section>
@@ -134,17 +130,20 @@
 <script setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 import i18n from "../../plugins/i18n.js";
-import { services } from "../data/services.js";
+import { getServices } from "../data/services.js";
 
 const _e = (key, fallback = key) => (
     i18n.global.te(key) ? i18n.global.t(key) : fallback
 );
 
 const route = useRoute();
-const service = computed(() =>
-    services.find((item) => item.slug === route.params.slug),
-);
+const { locale } = useI18n();
+const service = computed(() => {
+    locale.value;
+    return getServices().find((item) => item.slug === route.params.slug);
+});
 const steps = [
     {
         number: "01",
@@ -153,30 +152,30 @@ const steps = [
     },
     {
         number: "02",
-        title: _e(`single_service.vue_1789429729220_222`, `Create`),
-        text: _e(`single_service.vue_1789429729221_223`, `We design and build a focused solution with clear communication throughout.`),
+        title: _e(`single_service.vue_1789429729220_222`, `Analyze`),
+        text: _e(`single_service.vue_1789429729221_223`, `We cross-reference this data to identify where and why revenue is being lost.`),
     },
     {
         number: "03",
-        title: _e(`single_service.vue_1789429729221_224`, `Grow`),
-        text: _e(`single_service.vue_1789429729221_225`, `We measure the result and help your solution evolve as your needs change.`),
+        title: _e(`single_service.vue_1789429729221_224`, `Restore`),
+        text: _e(`single_service.vue_1789429729221_225`, `We provide you with a detailed, prioritized assessment, ready for use.`),
     },
 ];
 const capabilities = [
     {
-        title: _e(`single_service.vue_1789429729221_226`, `Strategic clarity`),
+        title: _e(`single_service.vue_1789429729221_226`, `Quantitative Clarity`),
         icon: "flaticon-information",
-        text: _e(`single_service.vue_1789429729221_227`, `A clear direction that connects your digital project to the way your organization actually works.`),
+        text: _e(`single_service.vue_1789429729221_227`, `Each identified leak is accompanied by an estimated amount of lost revenue.`),
     },
     {
-        title: _e(`single_service.vue_1789429729221_228`, `Human experience`),
+        title: _e(`single_service.vue_1789429729221_228`, `Field audit included`),
         icon: "flaticon-interaction",
-        text: _e(`single_service.vue_1789429729221_229`, `Thoughtful interfaces and flows designed to feel natural for the people who use them.`),
+        text: _e(`single_service.vue_1789429729221_229`, `We test your actual intake, not just your dashboards.`),
     },
     {
-        title: _e(`single_service.vue_1789429729221_230`, `Built to evolve`),
+        title: _e(`single_service.vue_1789429729221_230`, `Built to Perform`),
         icon: "flaticon-analytics",
-        text: _e(`single_service.vue_1789429729221_231`, `A solid foundation that can adapt as your audience, objectives and opportunities grow.`),
+        text: _e(`single_service.vue_1789429729221_231`, `The audit leads directly to concrete priorities, not to a report that gets filed away.`),
     },
 ];
 </script>
@@ -199,7 +198,7 @@ const capabilities = [
     background: linear-gradient(
         105deg,
         rgba(3, 25, 65, 0.96),
-        rgba(12, 90, 219, 0.52)
+        rgba(11, 37, 69, 0.52)
     );
 }
 .service-detail__hero-content {
@@ -222,7 +221,7 @@ const capabilities = [
     margin-bottom: 20px;
     border: 8px solid rgba(255, 255, 255, 0.22);
     border-radius: 50%;
-    color: #0c5adb;
+    color: #0B2545;
     background: #fff;
     font-size: 38px;
     animation: detailFloat 4s ease-in-out infinite;
@@ -247,7 +246,7 @@ const capabilities = [
     display: inline-block;
     padding: 14px 24px;
     color: #fff;
-    background: #0c5adb;
+    background: #0B2545;
     font-weight: 700;
 }
 .service-detail__hero-button:hover,
@@ -276,7 +275,7 @@ const capabilities = [
 }
 .service-detail__kicker {
     margin: 0 0 12px;
-    color: #0c5adb;
+    color: #136928;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -308,7 +307,7 @@ const capabilities = [
     width: 55px;
     height: 4px;
     margin: 20px 0;
-    background: #0c5adb;
+    background: #0B2545;
 }
 .service-detail__body p {
     line-height: 1.85;
@@ -323,7 +322,7 @@ const capabilities = [
     display: block;
 }
 .service-detail__metrics strong {
-    color: #0c5adb;
+    color: #0B2545;
     font-size: 30px;
 }
 .service-detail__metrics span {
@@ -355,7 +354,7 @@ const capabilities = [
     gap: 10px;
     padding: 12px 15px;
     color: #fff;
-    background: #0c5adb;
+    background: #0B2545;
     font-size: 13px;
     font-weight: 700;
 }
@@ -365,7 +364,7 @@ const capabilities = [
 .service-detail__panel {
     padding: 32px;
     border: 1px solid #e1eaf7;
-    border-top: 4px solid #0c5adb;
+    border-top: 4px solid #0B2545;
     background: #f7faff;
 }
 .service-detail__panel h3 {
@@ -389,7 +388,7 @@ const capabilities = [
     border-bottom: 0;
 }
 .service-detail__panel li i {
-    color: #0c5adb;
+    color: #0B2545;
 }
 .service-detail__capabilities {
     padding: 100px 0 75px;
@@ -410,13 +409,13 @@ const capabilities = [
         border-color 0.35s ease;
 }
 .capability-card:hover {
-    border-color: #0c5adb;
+    border-color: #0B2545;
     transform: translateY(-8px);
 }
 .capability-card > i {
     display: block;
     margin-bottom: 22px;
-    color: #0c5adb;
+    color: #0B2545;
     font-size: 34px;
 }
 .capability-card h3 {
@@ -446,7 +445,7 @@ const capabilities = [
         box-shadow 0.35s ease;
 }
 .detail-step:hover {
-    box-shadow: 0 18px 35px rgba(12, 90, 219, 0.14);
+    box-shadow: 0 18px 35px rgba(11, 37, 69, 0.14);
     transform: translateY(-8px);
 }
 .detail-step span {
@@ -458,7 +457,7 @@ const capabilities = [
     margin-bottom: 22px;
     border-radius: 50%;
     color: #fff;
-    background: #0c5adb;
+    background: #0B2545;
     font-weight: 700;
 }
 .detail-step h3 {
@@ -472,7 +471,7 @@ const capabilities = [
 }
 .service-detail__cta {
     padding: 100px 0;
-    background: linear-gradient(110deg, #061d43, #0c5adb);
+    background: linear-gradient(110deg, #061d43, #0B2545);
 }
 .service-detail__cta h2 {
     color: #fff;
@@ -487,7 +486,7 @@ const capabilities = [
     display: inline-block;
     padding: 14px 26px;
     color: #fff;
-    background: #0c5adb;
+    background: #0B2545;
     font-weight: 700;
 }
 @media (max-width: 575px) {
