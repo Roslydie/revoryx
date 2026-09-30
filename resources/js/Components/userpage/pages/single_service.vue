@@ -79,7 +79,7 @@
                 </div>
                 <div class="row">
                     <div
-                        v-for="capability in capabilities"
+                        v-for="capability in service.capabilities"
                         :key="capability.title"
                         class="col-lg-4 mb-4"
                     >
@@ -100,7 +100,7 @@
                 </div>
                 <div class="row">
                     <div
-                        v-for="step in steps"
+                        v-for="step in service.steps"
                         :key="step.number"
                         class="col-lg-4 mb-4"
                     >
@@ -144,40 +144,6 @@ const service = computed(() => {
     locale.value;
     return getServices().find((item) => item.slug === route.params.slug);
 });
-const steps = [
-    {
-        number: "01",
-        title: _e(`single_service.vue_1789429729220_220`, `Understand`),
-        text: _e(`single_service.vue_1789429729220_221`, `We clarify your goals, users and constraints before proposing a direction.`),
-    },
-    {
-        number: "02",
-        title: _e(`single_service.vue_1789429729220_222`, `Analyze`),
-        text: _e(`single_service.vue_1789429729221_223`, `We cross-reference this data to identify where and why revenue is being lost.`),
-    },
-    {
-        number: "03",
-        title: _e(`single_service.vue_1789429729221_224`, `Restore`),
-        text: _e(`single_service.vue_1789429729221_225`, `We provide you with a detailed, prioritized assessment, ready for use.`),
-    },
-];
-const capabilities = [
-    {
-        title: _e(`single_service.vue_1789429729221_226`, `Quantitative Clarity`),
-        icon: "flaticon-information",
-        text: _e(`single_service.vue_1789429729221_227`, `Each identified leak is accompanied by an estimated amount of lost revenue.`),
-    },
-    {
-        title: _e(`single_service.vue_1789429729221_228`, `Field audit included`),
-        icon: "flaticon-interaction",
-        text: _e(`single_service.vue_1789429729221_229`, `We test your actual intake, not just your dashboards.`),
-    },
-    {
-        title: _e(`single_service.vue_1789429729221_230`, `Built to Perform`),
-        icon: "flaticon-analytics",
-        text: _e(`single_service.vue_1789429729221_231`, `The audit leads directly to concrete priorities, not to a report that gets filed away.`),
-    },
-];
 </script>
 
 <style scoped>

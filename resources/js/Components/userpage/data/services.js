@@ -24,6 +24,40 @@ export const getServices = () => [
             { number: '02', text: _e('service.performance-audit.metric-2', `Revenue leaks quantified`) },
             { number: '03', text: _e('service.performance-audit.metric-3', `Marketing-to-sales funnel mapped`) },
         ],
+        steps: [
+            {
+                number: '01',
+                title: _e('single_service.vue_1789429729220_220', `Understand`),
+                text: _e('single_service.vue_1789429729220_221', `We'll take over your advertising data, CRM, and current intake processes.`),
+            },
+            {
+                number: '02',
+                title: _e('single_service.vue_1789429729220_222', `Analyze`),
+                text: _e('single_service.vue_1789429729221_223', `We cross-reference this data to identify where and why revenue is being lost.`),
+            },
+            {
+                number: '03',
+                title: _e('single_service.vue_1789429729221_224', `Restore`),
+                text: _e('single_service.vue_1789429729221_225', `We provide you with a detailed, prioritized assessment, ready for use.`),
+            },
+        ],
+        capabilities: [
+            {
+                title: _e('single_service.vue_1789429729221_226', `Quantitative Clarity`),
+                icon: 'flaticon-information',
+                text: _e('single_service.vue_1789429729221_227', `Each identified leak is accompanied by an estimated amount of lost revenue.`),
+            },
+            {
+                title: _e('single_service.vue_1789429729221_228', `Field audit included`),
+                icon: 'flaticon-interaction',
+                text: _e('single_service.vue_1789429729221_229', `We test your actual intake, not just your dashboards.`),
+            },
+            {
+                title: _e('single_service.vue_1789429729221_230', `Built to Perform`),
+                icon: 'flaticon-analytics',
+                text: _e('single_service.vue_1789429729221_231', `The audit leads directly to concrete priorities, not to a report that gets filed away.`),
+            },
+        ],
     },
     {
         slug: 'recovery-plan',
@@ -43,6 +77,40 @@ export const getServices = () => [
             { number: '01', text: _e('service.recovery-plan.metric-1', `Clear Priorities`) },
             { number: '02', text: _e('service.recovery-plan.metric-2', `90 Day Plan`) },
             { number: '03', text: _e('service.recovery-plan.metric-3', `Impact, in figures per share`) },
+        ],
+        steps: [
+            {
+                number: '01',
+                title: _e('service.recovery-plan.step-1-title', `Quantify`),
+                text: _e('service.recovery-plan.step-1-text', `We quantify the financial impact of each leak identified in the audit.`),
+            },
+            {
+                number: '02',
+                title: _e('service.recovery-plan.step-2-title', `Prioritize`),
+                text: _e('service.recovery-plan.step-2-text', `We categorize corrections based on their impact and how easy they are to implement.`),
+            },
+            {
+                number: '03',
+                title: _e('service.recovery-plan.step-3-title', `Plan`),
+                text: _e('service.recovery-plan.step-3-text', `We provide a clear 90-day implementation schedule.`),
+            },
+        ],
+        capabilities: [
+            {
+                title: _e('service.recovery-plan.capability-1-title', `True Prioritization`),
+                icon: 'flaticon-information',
+                text: _e('service.recovery-plan.capability-1-text', `Each action is listed by estimated financial impact, not in alphabetical order`),
+            },
+            {
+                title: _e('service.recovery-plan.capability-2-title', `Feasibility Verified`),
+                icon: 'flaticon-analytics',
+                text: _e('service.recovery-plan.capability-2-text', `We take into account your current resources and tools, not an ideal scenario.`),
+            },
+            {
+                title: _e('service.recovery-plan.capability-3-title', `Ready to run`),
+                icon: 'flaticon-process',
+                text: _e('service.recovery-plan.capability-3-text', `Each action in the plan is specific enough to be implemented without further interpretation.`),
+            },
         ],
     },
     {
@@ -64,6 +132,40 @@ export const getServices = () => [
             { number: '02', text: _e('service.recovery-implementation.metric-2', `Team training included`) },
             { number: '03', text: _e('service.recovery-implementation.metric-3', `Implementation Monitoring`) },
         ],
+        steps: [
+            {
+                number: '01',
+                title: _e('service.recovery-implementation.step-1-title', `Configure`),
+                text: _e('service.recovery-implementation.step-1-text', `We set up the tracking, automations, and necessary tools.`),
+            },
+            {
+                number: '02',
+                title: _e('service.recovery-implementation.step-2-title', `Train`),
+                text: _e('service.recovery-implementation.step-2-text', `We support your team as they adopt the new processes.`),
+            },
+            {
+                number: '03',
+                title: _e('service.recovery-implementation.step-3-title', `Check`),
+                text: _e('service.recovery-implementation.step-3-text', `We confirm that each fix works as expected under real-world conditions.`),
+            },
+        ],
+        capabilities: [
+            {
+                title: _e('service.recovery-implementation.capability-1-title', `Technical Implementation`),
+                icon: 'flaticon-process',
+                text: _e('service.recovery-implementation.capability-1-text', `Tracking, automations, and integrations set up correctly from the start.`),
+            },
+            {
+                title: _e('service.recovery-implementation.capability-2-title', `Land Acquisition`),
+                icon: 'flaticon-interaction',
+                text: _e('service.recovery-implementation.capability-2-text', `We provide direct training to the teams that will use the new processes on a daily basis.`),
+            },
+            {
+                title: _e('service.recovery-implementation.capability-3-title', `Implementation Monitoring`),
+                icon: 'flaticon-information',
+                text: _e('service.recovery-implementation.capability-3-text', `We verify that the patches are actually being used, not just installed.`),
+            },
+        ],
     },
     {
         slug: 'performance-management',
@@ -83,6 +185,40 @@ export const getServices = () => [
             { number: '01', text: _e('service.performance-management.metric-1', `Monthly Follow-Up`) },
             { number: '02', text: _e('service.performance-management.metric-2', `Continuous adjustment`) },
             { number: '03', text: _e('service.performance-management.metric-3', `Reporting on Actual ROI`) },
+        ],
+        steps: [
+            {
+                number: '01',
+                title: _e('service.performance-management.step-1-title', `Measure`),
+                text: _e('service.performance-management.step-1-text', `Every month, we track revenue generated and lead quality.`),
+            },
+            {
+                number: '02',
+                title: _e('service.performance-management.step-2-title', `Audit`),
+                text: _e('service.performance-management.step-2-text', `We regularly check to make sure that the intake process and automated systems are still working properly.`),
+            },
+            {
+                number: '03',
+                title: _e('service.performance-management.step-3-title', `Adjust`),
+                text: _e('service.performance-management.step-3-text', `We adapt the system as your business, campaigns, or team change.`),
+            },
+        ],
+        capabilities: [
+            {
+                title: _e('service.performance-management.capability-1-title', `ROI tracked over time`),
+                icon: 'flaticon-analytics',
+                text: _e('service.performance-management.capability-1-text', `Recovered income is measured and reported each month, not estimated just once.`),
+            },
+            {
+                title: _e('service.performance-management.capability-2-title', `Monitored Lead Quality`),
+                icon: 'flaticon-information',
+                text: _e('service.performance-management.capability-2-text', `We regularly audit the intake process to ensure that best practices are being followed.`),
+            },
+            {
+                title: _e('service.performance-management.capability-3-title', `Continuous adjustment`),
+                icon: 'flaticon-process',
+                text: _e('service.performance-management.capability-3-text', `We adapt our automation processes and priorities as your business evolves.`),
+            },
         ],
     },
 ];
