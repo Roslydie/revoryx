@@ -5,7 +5,7 @@
 
         <div class="login-card">
             <a href="/admin/login" class="login-brand text-decoration-none">
-                <i class="bi bi-asterisk"></i>
+                
                 <span>Revoryx &amp; Partners</span>
             </a>
 

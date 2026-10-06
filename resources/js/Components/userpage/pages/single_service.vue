@@ -1,6 +1,6 @@
 <template>
     <main v-if="service" class="service-detail">
-        <section class="service-detail__hero">
+        <section class="service-detail__hero" :style="{ backgroundImage: `url('${service.heroImage}')` }">
             <div class="service-detail__overlay"></div>
             <div class="container service-detail__hero-content">
                 <router-link class="service-detail__back" to="/service"
@@ -14,11 +14,11 @@
                 <h1>{{ service.title }}</h1>
                 <p>{{ service.short }}</p>
                 <div class="service-detail__hero-actions">
-                    <a
-                        href="#request-service"
+                    <RouterLink
+                        to="/contact"
                         class="service-detail__hero-button">{{ _e(`single_service.vue_1789429729220_219`, `Request an audit`) }}
-                        <i class="fa fa-long-arrow-right"></i></a
-                    ><span
+                        <i class="fa fa-long-arrow-right"></i></RouterLink>
+                    <span
                         ><i class="fa fa-check-circle"></i>{{ _e(`single_service.vue_1789429729220_202`, `Analyzed before being recommended`) }}</span>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="row align-items-start">
                     <div class="col-lg-7">
                         <p class="service-detail__kicker">{{ _e(`single_service.vue_1789429729220_203`, `A FOCUSED APPROACH`) }}</p>
-                        <h2>{{ _e(`single_service.vue_1789429729220_204`, `Know exactly where your budget is going before you spend any more`) }}</h2>
+                        <h2>{{ _e(`single_service.vue_1789429729220_204`, `Recoup the income you're already generating`) }}</h2>
                         <div class="service-detail__rule"></div>
                         <div class="service-detail__lead">
                             <p v-for="description in service.description" :key="description">
@@ -46,12 +46,12 @@
                     <div class="col-lg-5">
                         <div class="service-detail__visual">
                             <img
-                                :src="'/assets/images/blog1.jpg'"
-                                alt="Digital service visual"
+                                :src="service.image"
+                                :alt="service.title"
                             />
                             <div class="service-detail__visual-badge">
                                 <i :class="service.icon"></i
-                                ><span>{{ _e(`single_service.vue_1789429729220_209`, `Designed to perform`) }}</span>
+                                ><span>{{ _e(`single_service.vue_1789429729220_209`, `Linked to a measured result`) }}</span>
                             </div>
                         </div>
                         <div class="service-detail__panel">
@@ -73,8 +73,8 @@
             <div class="container">
                 <div class="section-heading text-center">
                     <p class="service-detail__kicker">{{ _e(`single_service.vue_1789429729220_211`, `THE VALUE WE BRING`) }}</p>
-                    <h2>{{ _e(`single_service.vue_1789429729220_212`, `More than just a report, it's a clear picture of what's costing you money`) }}</h2>
-                    <p>{{ _e(`single_service.vue_1789429729220_213`, `We combine advertising data, CRM data, and on-site audits to provide a comprehensive diagnosis, not just a rough estimate.`) }}
+                    <h2>{{ _e(`single_service.vue_1789429729220_212`, `More than just a deliverable, it's recovered revenue`) }}</h2>
+                    <p>{{ _e(`single_service.vue_1789429729220_213`, `We start with your actual data, quantify every decision, and track the results through to the very end, no matter what stage we're at.`) }}
                     </p>
                 </div>
                 <div class="row">
@@ -96,7 +96,7 @@
             <div class="container">
                 <div class="section-heading text-center">
                     <p class="service-detail__kicker">{{ _e(`single_service.vue_1789429729220_214`, `OUR METHOD`) }}</p>
-                    <h2>{{ _e(`single_service.vue_1789429729220_215`, `From Your Data to Your Diagnosis`) }}</h2>
+                    <h2>{{ _e(`single_service.vue_1789429729220_215`, `From Your Data to a Measurable Result`) }}</h2>
                 </div>
                 <div class="row">
                     <div
@@ -116,8 +116,8 @@
         <section id="request-service" class="service-detail__cta">
             <div class="container text-center">
                 <p class="service-detail__kicker">{{ _e(`single_service.vue_1789429729220_216`, `READY WHEN YOU ARE`) }}</p>
-                <h2>{{ _e(`single_service.vue_1789429729220_217`, `Let's find out together where your budget is going.`) }}</h2>
-                <p>{{ _e(`single_service.vue_1789429729220_218`, `Tell us where you think the problem lies. We'll check to see if that's really where the issue is.`) }}
+                <h2>{{ _e(`single_service.vue_1789429729220_217`, `Let's start by figuring out what you're already missing out on.`) }}</h2>
+                <p>{{ _e(`single_service.vue_1789429729220_218`, `Tell us where you feel the problem lies. We'll let you know if that's really where the problem is.`) }}
                 </p>
                 <router-link to="/contact" class="service-detail__cta-button"
                     > {{ _e(`single_service.vue_1789429729220_219`, `Request an audit`) }} <i class="fa fa-long-arrow-right"></i
@@ -156,7 +156,8 @@ const service = computed(() => {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: url("/assets/images/blog1.jpg") center / cover;
+    background-position: center;
+    background-size: cover;
 }
 .service-detail__overlay {
     position: absolute;

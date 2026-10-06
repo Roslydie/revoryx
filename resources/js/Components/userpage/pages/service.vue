@@ -57,13 +57,13 @@ const services = computed(() => {
 <style scoped>
 .services-page { color: #616161; }
 .section-space { padding: 100px 0; }
-.services-hero { position: relative; min-height: 500px; display: flex; align-items: center; background: url('/assets/images/blog2.jpg') center / cover; }
+.services-hero { position: relative; min-height: 500px; display: flex; align-items: center; background: url('/assets/images/service_hero.png') center / cover; }
 .services-hero__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3, 25, 65, .94), rgba(11, 37, 69, .46)); }
 .services-hero__content { position: relative; z-index: 1; color: #fff; }
 .services-hero h1 { max-width: 800px; margin: 0 0 20px; color: #fff; font-size: clamp(40px, 6vw, 74px); line-height: 1.08; }
 .services-hero p:not(.services-kicker) { max-width: 620px; margin: 0; color: rgba(255, 255, 255, .84); font-size: 19px; }
 .services-kicker { margin: 0 0 13px; color: #0B2545; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-.services-hero .services-kicker, .services-cta .services-kicker { color: #2E7D5B; }
+.services-hero .services-kicker, .services-cta .services-kicker { color: #6B7280; }
 .section-heading { max-width: 700px; margin: 0 auto 48px; }
 .section-heading h2, .services-cta h2 { margin: 0 0 18px; color: #232323; font-size: clamp(30px, 4vw, 45px); line-height: 1.2; }
 .section-heading > p:last-child { margin: 0; font-size: 17px; line-height: 1.75; }

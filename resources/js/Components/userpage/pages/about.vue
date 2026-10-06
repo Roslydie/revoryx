@@ -6,7 +6,7 @@
                 <p class="about-kicker">{{ _e(`about.vue_1790616495697_65`, `MARKETING PERFORMANCE & REVENUE RECOVERY`) }}</p>
                 <h1>{{ _e(`about.vue_1789391771434_22`, `Find the leak before selling the solution`) }} </h1>
                 <p>{{ _e(`about.vue_1789391771434_23`, `We identify where your revenue is being lost between marketing and sales, quantify it, and fix the system without making you spend more on advertising.`) }}</p>
-                <router-link class="about-button" to="/project"> {{ _e(`about.vue_1789391771434_24`, `View our results`) }} <i class="fa fa-long-arrow-right"></i></router-link>
+                <router-link class="about-button" to="/contact"> {{ _e(`about.vue_1789391771434_24`, `Request an audit`) }} <i class="fa fa-long-arrow-right"></i></router-link>
             </div>
         </section>
 
@@ -15,7 +15,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
                         <div class="about-image-wrap">
-                            <img :src="'/assets/images/about-img.png'" alt="Digital solutions team">
+                            <img :src="'/assets/images/about.png'" alt="Deux collègues discutant d'un diagramme de tunnel de conversion sur ordinateur.">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -25,9 +25,15 @@
                         <p>{{ _e(`about.vue_1789391771434_27`, `Revoryx helps companies that are already investing in marketing recover the revenue they lose between customer acquisition, lead nurturing, and the sale.`) }}</p>
                         <p>{{ _e(`about.vue_1789391771434_28`, `Our approach is methodical: we identify where performance is declining, quantify the cost in dollars, and then fix the system not just the symptom.`) }}</p>
                         <div class="about-stat-row">
-                            <div><strong>01</strong><span>{{ _e(`about.vue_1789391771434_29`, `A Quantitative Analysis`) }}</span></div>
-                            <div><strong>02</strong><span>{{ _e(`about.vue_1789391771434_30`, `Targeted correction`) }}</span></div>
-                            <div><strong>03</strong><span>{{ _e(`about.vue_1789391771434_31`, `A measured result`) }}</span></div>
+                            <div><strong>01</strong><span>{{ _e(`about.vue_1789391771434_29`, `A Quantitative Analysis`) }}</span>
+                            <p>{{ _e(`about.vue_1791228482832_126`, `Each leak is measured in terms of dollars lost before it is corrected.`) }}</p>
+                            </div>
+                            <div><strong>02</strong><span>{{ _e(`about.vue_1789391771434_30`, `Targeted correction`) }}</span>
+                            <p>{{ _e(`about.vue_1791228482833_128`, `We focus on what has the greatest impact, not on everything at once.`) }}</p>
+                            </div>
+                            <div><strong>03</strong><span>{{ _e(`about.vue_1789391771434_31`, `A measured result`) }}</span>
+                            <p>{{ _e(`about.vue_1791228482833_130`, `Recovered revenue is tracked on a month-by-month basis.`) }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,13 +150,14 @@ const reasons = computed(() => [
 <style scoped>
 .about-page { color: #616161; }
 .section-space { padding: 100px 0; }
-.about-hero { position: relative; min-height: 560px; display: flex; align-items: center; background: url('/assets/images/slider/hero-bg.jpg') center / cover; }
+.about-hero { position: relative; min-height: 560px; display: flex; align-items: center; background: url('/assets/images/slider/hero.png') center / cover; }
+.about-hero__overlay { position: absolute; inset: 0; background: rgba(11, 37, 69, .65); }
 
 .about-hero__content { position: relative; z-index: 1; color: #fff; }
 .about-hero h1 { max-width: 760px; margin: 0 0 20px; color: #fff; font-size: clamp(40px, 6vw, 74px); line-height: 1.08; }
 .about-hero p:not(.about-kicker) { max-width: 600px; margin-bottom: 30px; color: rgba(255, 255, 255, .84); font-size: 19px; }
 .about-kicker { margin: 0 0 13px; color: #0B2545; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-.about-hero .about-kicker, .about-cta .about-kicker { color: #2E7D5B; }
+.about-hero .about-kicker, .about-cta .about-kicker { color: #6B7280; }
 .about-button { display: inline-block; padding: 13px 25px; border-radius: 0; color: #fff; background: #0B2545; font-weight: 700; transition: transform .3s ease, background .3s ease; }
 .about-button:hover { color: #fff; background: #6B7280; transform: translateY(-3px); }
 .about-image-wrap { position: relative; padding: 0 35px 30px 0; }
@@ -160,10 +167,12 @@ const reasons = computed(() => [
 .about-intro h2, .about-why h2, .section-heading h2, .about-cta h2 { margin: 0 0 18px; color: #232323; font-size: clamp(30px, 4vw, 45px); line-height: 1.2; }
 .about-intro p, .about-why > .container p { line-height: 1.8; }
 .about-rule { width: 55px; height: 4px; margin: 20px 0; background: #0B2545; }
-.about-stat-row { display: flex; gap: 30px; margin-top: 26px; }
+.about-stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 26px; }
+.about-stat-row > div { min-width: 0; padding: 20px 16px; text-align: center; }
 .about-stat-row strong, .about-stat-row span { display: block; }
-.about-stat-row strong { color: #0B2545; font-size: 27px; }
-.about-stat-row span { color: #232323; font-size: 13px; font-weight: 700; }
+.about-stat-row strong { margin-bottom: 7px; color: #0B2545; font-size: 27px; }
+.about-stat-row span { color: #232323; font-size: 14px; font-weight: 700; }
+.about-stat-row p { margin: 8px 0 0; color: #616161; font-size: 14px; line-height: 1.6; }
 .about-pillars { background: #f7faff; }
 .section-heading { max-width: 700px; margin: 0 auto 48px; }
 .section-heading > p:last-child { margin: 0; font-size: 17px; }

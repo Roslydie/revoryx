@@ -261,7 +261,13 @@ const sections = computed(() => [
     min-height: 500px;
     display: flex;
     align-items: center;
-    background: url('/assets/images/slider/hero-bg.jpg') center / cover;
+    background: url('/assets/images/slider/hero.png') center / cover;
+}
+
+.policy-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(11, 37, 69, .65);
 }
 
 .policy-hero__content {
@@ -296,7 +302,7 @@ const sections = computed(() => [
 
 .policy-hero .policy-kicker,
 .policy-callout .policy-kicker {
-    color: #65d5a0;
+    color: #6B7280;
 }
 
 .policy-updated {

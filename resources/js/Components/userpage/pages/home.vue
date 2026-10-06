@@ -159,7 +159,7 @@
                     <h3>{{ _e(`home.vue_1789384786151_42`, `Demonstrate recovery`) }}</h3>
                   </div>
                   <div class="flipbox_desc">
-                    <p>{{ _e(`home.vue_1789384786151_45`, `Each initiative is linked to a measurable outcome: opportunities recovered, additional revenue, and demonstrated ROI.`) }}</p>
+                    <p>{{ _e(`home.vue_1791227296608_286`, `Each initiative is linked to a measurable outcome: opportunities recovered, additional revenue, and demonstrated ROI.`) }}</p>
                   </div>
                 </div>
               </div>
@@ -181,7 +181,7 @@
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
             <div class="single_about_thumb mb-3">
               <div class="single_about_thumb_inner">
-                <img :src="'/assets/images/about-img.png'" alt="">
+                <img :src="'/assets/images/about-img3.png'" alt="Deux collègues consultant un tableau de bord CRM sur tablette dans un bureau.">
               </div>
             </div>
             
@@ -189,7 +189,7 @@
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
             <div class="section_title text_left mb-40 mt-3">
               <div class="section_sub_title uppercase mb-3">
-                <h6> {{ _e(`home.vue_1789384786151_44`, `About Us`) }} </h6>
+                <h6> {{ _e(`home.vue_1791226645188_232`, `About Us`) }} </h6>
               </div>
               <div class="section_main_title">
                 <h1> {{ _e(`home.vue_1789384786151_45`, `The problem isn't a lack of leads.`) }} </h1>
@@ -227,7 +227,7 @@
     </div>
     
 
-    <div class="flipbox_area pt-85 pb-70" style="background-image: url(/assets/images/slider/slider-4.jpg)">
+    <div class="flipbox_area pt-85 pb-70" style="background-image: url(/assets/images/slider/slider-4.png)">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -679,7 +679,7 @@
               </div>
               <form @submit.prevent="subscribeToNewsletter" id="dreamit-form" class="newsletter-form">
                 <div class="subscribe_form newsletter-input-wrap">
-                  <input v-model.trim="newsletterEmail" type="email" name="email" id="email" class="form-control" data-error="Please enter your email" placeholder="Enter Your Email" required :disabled="newsletterLoading">
+                  <input v-model.trim="newsletterEmail" type="email" name="email" id="email" class="form-control" data-error="Please enter your email" :placeholder="_e(`home.vue_1791227296608_285`, `Your email address`)" required :disabled="newsletterLoading">
                   <div class="help-block with-errors"></div>
                 </div>
                 <div class="subscribe_form_send newsletter-submit-wrap">
@@ -860,6 +860,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.about_area .single_about_thumb_inner img { display: block; width: 90%; max-width: 500px; height: auto; margin: 0 auto; }
 .home-projects__state { width: 100%; flex: 0 0 100%; max-width: 100%; padding: 70px 20px; color: #6a7484; text-align: center; }
 .home-projects__state--error { color: #b42318; }
 .home-projects__footer { margin-top: 36px; text-align: center; }
@@ -869,6 +870,8 @@ onBeforeUnmount(() => {
 .slider_text_inner h5,
 .section_sub_title h6,
 .singel-about-content h5 { color: #6B7280; }
+.em_bar_bg { background-color: #0B2545 !important; }
+.how_it_work .single_it_work:hover .single_it_work_content_list span { background: #6B7280 !important; }
 .slider_button .button a,
 .slider_button .button a.active,
 .slider_button .button a:hover,
@@ -880,6 +883,8 @@ onBeforeUnmount(() => {
 .slider_button .button a.active,
 .slider_button .button a[class*='active'] {
   border-radius: 0 !important;
+  background-color: #0B2545 !important;
+  color: #fff !important;
 }
 .home-project-card { transition: transform .35s ease, box-shadow .35s ease; }
 .home-project-card:hover { box-shadow: 0 18px 35px rgba(11, 37, 69, .16); transform: translateY(-8px); }
@@ -916,7 +921,7 @@ onBeforeUnmount(() => {
 .home-testimonial-card { height: 100%; padding: 12px; }
 .home-testimonial-card .single_testimonial_content { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 340px; min-height: 340px; padding: 38px 30px 28px; border: 1px solid rgba(255, 255, 255, .28); border-radius: 0; background: rgba(6, 29, 67, .2); box-shadow: 0 14px 30px rgba(3, 25, 65, .14); }
 .home-testimonial-card .single_testimonial_content::before { position: absolute; top: 16px; left: 24px; color: #65d5a0; content: '"'; font-family: "Inter", sans-serif; font-size: 58px; line-height: 1; }
-.home-testimonial-card .single_testimonial_content::after { position: absolute; bottom: -11px; left: 50%; width: 22px; height: 22px; border-right: 1px solid rgba(255, 255, 255, .28); border-bottom: 1px solid rgba(255, 255, 255, .28); background: #123fc9; content: ''; transform: translateX(-50%) rotate(45deg); }
+.home-testimonial-card .single_testimonial_content::after { position: absolute; bottom: -11px; left: 50%; width: 22px; height: 22px; border-right: 1px solid rgba(255, 255, 255, .28); border-bottom: 1px solid rgba(255, 255, 255, .28); background: #0B2545; content: ''; transform: translateX(-50%) rotate(45deg); }
 .home-testimonial-card .single_testimonial_content_text { display: flex; flex: 1; align-items: center; margin: 0 !important; }
 .home-testimonial-card .single_testimonial_content_text p { display: -webkit-box; overflow: hidden; margin: 0; color: rgba(255, 255, 255, .88); line-height: 1.8; line-clamp: 5; -webkit-box-orient: vertical; -webkit-line-clamp: 5; }
 .home-testimonial-avatar { display: grid; place-items: center; width: 64px; height: 64px; margin-left: auto; margin-right: auto; border-radius: 50%; color: #0B2545; background: #fff; font-size: 27px; }

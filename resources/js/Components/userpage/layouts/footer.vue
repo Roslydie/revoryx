@@ -24,7 +24,6 @@
                             <li v-if="false"><router-link to="/project">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link></li>
                             <li v-if="false"><router-link to="/blog">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link></li>
                             <li><router-link to="/contact">{{ _e(`header.vue_1789383437179_20`, `Contact`) }}</router-link></li>
-                            <li><router-link to="/admin" target="_blank" rel="noopener noreferrer">{{ _e(`footer.vue_1789383437172_8`, `Admin panel`) }}</router-link></li>
                         </ul>
                     </nav>
 
@@ -41,7 +40,7 @@
                         <form class="site-footer__form" @submit.prevent="subscribeToNewsletter">
                             <label for="footer-newsletter-email">{{ _e(`footer.vue_1789383437173_12`, `Subscribe to our newsletter`) }}</label>
                             <div class="site-footer__form-row">
-                                <input v-model.trim="newsletterEmail" id="footer-newsletter-email" type="email" name="email" placeholder="Your email address" autocomplete="email" required :disabled="newsletterLoading">
+                                <input v-model.trim="newsletterEmail" id="footer-newsletter-email" type="email" name="email" :placeholder="_e(`footer.vue_1791227296594_100`, `Your email address`)" autocomplete="email" required :disabled="newsletterLoading">
                                 <button type="submit" aria-label="Subscribe" :disabled="newsletterLoading"><i class="fa fa-long-arrow-right"></i></button>
                             </div>
                             <p v-if="newsletterMessage" class="site-footer__feedback site-footer__feedback--success">{{ newsletterMessage }}</p>

@@ -3,7 +3,7 @@
         <section class="contact-hero">
             <div class="contact-hero__overlay"></div>
             <div class="container contact-hero__content">
-                <p class="contact-kicker">MARKETING PERFORMANCE & REVENUE RECOVERY</p>
+                <p class="contact-kicker" style="color: #6B7280;">MARKETING PERFORMANCE & REVENUE RECOVERY</p>
                 <h1>{{ _e(`contact.vue_1789430796873_101`, `Let's talk about what you're already losing`) }}</h1>
                 <p>{{ _e(`contact.vue_1789430796873_102`, `Tell us where you think the problem is. We'll help you figure out if that's really where the leak is.`) }}</p>
                 <div class="contact-hero__meta">
@@ -223,7 +223,8 @@ const submitContact = async () => {
 <style scoped>
 .contact-page { color: #616161; }
 .section-space { padding: 100px 0; }
-.contact-hero { position: relative; min-height: 500px; display: flex; align-items: center; background: url('/assets/images/slider/hero-bg.jpg') center / cover; }
+.contact-hero { position: relative; min-height: 500px; display: flex; align-items: center; background: url('/assets/images/slider/contact.png') center / cover; }
+.contact-hero__overlay { position: absolute; inset: 0; background: rgba(11, 37, 69, .65); }
 .contact-hero__content { position: relative; z-index: 1; color: #fff; }
 .contact-hero h1 { max-width: 760px; margin: 0 0 20px; color: #fff; font-size: clamp(40px, 6vw, 74px); line-height: 1.08; }
 .contact-hero p:not(.contact-kicker) { max-width: 620px; margin: 0; color: rgba(255, 255, 255, .84); font-size: 19px; }
@@ -274,7 +275,7 @@ const submitContact = async () => {
 .contact-callout__inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 .contact-callout h2 { max-width: 600px; margin: 0 0 14px; color: #fff; font-size: clamp(28px, 4vw, 42px); line-height: 1.2; }
 .contact-callout p:not(.contact-kicker) { max-width: 650px; margin: 0; color: rgba(255, 255, 255, .78); line-height: 1.8; }
-.contact-callout .contact-kicker { color: #65d5a0; }
+.contact-callout .contact-kicker { color: #6B7280; }
 .contact-callout__button { flex: 0 0 auto; padding: 14px 22px; border: 1px solid rgba(255, 255, 255, .35); border-radius: 3px; color: #fff; font-weight: 700; transition: background .25s ease, transform .25s ease; }
 .contact-callout__button:hover { color: #061d43; background: #fff; transform: translateY(-3px); }
 .contact-callout__button i { margin-left: 8px; }

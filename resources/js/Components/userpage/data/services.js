@@ -9,6 +9,8 @@ export const getServices = () => [
         slug: 'performance-audit',
         title: _e(`home.vue_1789384786151_54`, `Performance Audit`),
         icon: 'flaticon-analysis',
+        image: '/assets/images/service_audit.png',
+        heroImage: '/assets/images/audit_hero.png',
         short: _e(`home.vue_1789384786151_55`, `We audit your advertising data from the past 12 months, your lead generation, and your CRM to pinpoint exactly where revenue is being lost.`),
         description: [
             _e('service.performance-audit.description-1', `We analyze your entire sales funnel from lead generation to the completed sale to identify where performance is actually declining.`),
@@ -63,6 +65,8 @@ export const getServices = () => [
         slug: 'recovery-plan',
         title: _e(`home.vue_1789384786151_59`, `Recovery Plan`),
         icon: 'flaticon-report',
+        image: '/assets/images/service_relance.png',
+        heroImage: '/assets/images/relance_hero.png',
         short: _e(`home.vue_1789384786151_60`, `A prioritized 90 day action plan, ranked by financial impact and ease of implementation, so you know exactly what to address first.`),
         description: [
             _e('service.recovery-plan.description-1', `Based on the assessment, we develop a concrete plan that ranks each corrective action by financial impact, urgency, and ease of implementation.`),
@@ -117,6 +121,8 @@ export const getServices = () => [
         slug: 'recovery-implementation',
         title: _e(`home.vue_1789384786151_64`, `Recovery Implementation`),
         icon: 'flaticon-process',
+        image: '/assets/images/mise_en_oeuvre.png',
+        heroImage: '/assets/images/mise_en_oeuvre_hero.png',
         short: _e(`home.vue_1789384786151_65`, `We work with you to implement the necessary adjustments: tracking, landing pages, CRM automations, and training for the customer service team.`),
         description: [
             _e('service.recovery-implementation.description-1', `We implement the identified fixes ourselves: tracking configuration, landing page creation, CRM automations, and intake scripts.`),
@@ -171,6 +177,8 @@ export const getServices = () => [
         slug: 'performance-management',
         title: _e(`home.vue_1789384786151_69`, `Performance Management`),
         icon: 'flaticon-analytics',
+        image: '/assets/images/service_performance.png',
+        heroImage: '/assets/images/performance_hero.png',
         short: _e(`home.vue_1789384786151_70`, `Monthly monitoring of ROI and lead quality to continue improving the areas that have already been addressed.`),
         description: [
             _e('service.performance-management.description-1', `We monitor your conversion metrics, automations, and lead quality on a monthly basis to ensure that the performance gains you’ve achieved don’t decline over time.`),
