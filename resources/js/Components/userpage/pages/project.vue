@@ -1,9 +1,10 @@
 <template>
     <main class="project-page">
-        <section class="project-hero" style="background-image: url('/assets/images/slider/hero-bg.jpg');">
-            
+        <section class="project-hero">
+            <div class="project-hero__background" style="background-image: url('/assets/images/service_performance.png');"></div>
+            <div class="project-hero__overlay"></div>
             <div class="container project-hero__content">
-                <p class="project-kicker">REVORYX &amp; PARTNERS / WORK</p>
+                <p class="project-kicker" style="color: #616161;">REVORYX &amp; PARTNERS / WORK</p>
                 <h1>{{ _e(`project.vue_1789432983524_238`, `Work shaped around real opportunities`) }} </h1>
                 <p> {{ _e(`project.vue_1789432983525_239`, `Explore selected projects where strategy, design and technology come together to create useful progress.`) }} </p>
                 <div class="project-hero__meta">
@@ -122,7 +123,10 @@ onMounted(() => loadProjects());
 <style scoped>
 .project-page { color: #616161; }
 .section-space { padding: 90px 0; }
-.project-hero { position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden; background-color: #061d43; background-position: center; background-size: cover; animation: projectHeroDrift 18s ease-in-out infinite alternate; }
+.project-hero { position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden; background-color: #061d43; }
+.project-hero__background, .project-hero__overlay { position: absolute; inset: 0; }
+.project-hero__background { background-position: center; background-size: cover; animation: projectHeroDrift 18s ease-in-out infinite alternate; }
+.project-hero__overlay { background: linear-gradient(90deg, rgba(3, 25, 65, .88), rgba(3, 55, 125, .5)); }
 .project-hero__content { position: relative; z-index: 1; color: #fff; }
 .project-kicker { margin: 0 0 13px; color: #0B2545; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
 .project-hero .project-kicker { color: #65d5a0; }
@@ -170,7 +174,7 @@ onMounted(() => loadProjects());
 .project-pagination button.active, .project-pagination button:hover { color: #fff; background: #0B2545; }
 .project-cta { padding: 82px 0; color: #fff; background: linear-gradient(110deg, #061d43, #0B2545); }
 .project-cta__inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-.project-cta .project-kicker { color: #65d5a0; }
+.project-cta .project-kicker { color: #616161; }
 .project-cta h2 { margin: 0 0 12px; color: #fff; font-size: clamp(28px, 4vw, 42px); line-height: 1.2; }
 .project-cta p:not(.project-kicker) { margin: 0; color: rgba(255, 255, 255, .78); line-height: 1.8; }
 .project-cta__button { flex: 0 0 auto; padding: 14px 24px; color: #fff; background: #0B2545; font-weight: 700; transition: background .25s ease, transform .25s ease; }

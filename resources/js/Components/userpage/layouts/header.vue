@@ -69,10 +69,10 @@
                 <router-link to="/service">{{ _e(`header.vue_1789383437179_17`, `Service`) }}</router-link>
                
               </li>
-                <li v-if="false">
+                <li v-if="hasPublishedProjects">
                     <router-link to="/project">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link>
                 </li>
-              <li v-if="false">
+              <li v-if="hasPublishedBlogs">
                 <router-link to="/blog">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link>
               </li>
              
@@ -91,10 +91,10 @@
       </div>
     </div>
 
-    <header class="mobile-site-header" :class="{ 'mobile-site-header--open': mobileMenuOpen }">
+    <header class="mobile-site-header" :class="{ 'mobile-site-header--open': mobileMenuOpen, 'mobile-site-header--scrolled': isScrolled }">
       <div class="mobile-site-header__bar">
         <router-link to="/" class="mobile-site-header__logo" @click="mobileMenuOpen = false">
-          <img :src="'/assets/images/logo_norma.png'" alt="Revoryx &amp; Partners">
+          <img :src="isScrolled ? '/assets/images/Logo_revoryx_clair.png' : '/assets/images/Logo_revoryx_sombre.png'" alt="Revoryx &amp; Partners">
         </router-link>
         <button class="mobile-site-header__toggle" type="button" :aria-expanded="mobileMenuOpen" aria-label="Toggle navigation" @click="mobileMenuOpen = !mobileMenuOpen">
           <i :class="mobileMenuOpen ? 'bi bi-x-lg' : 'bi bi-list'"></i>
@@ -104,8 +104,8 @@
         <router-link to="/" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_15`, `Home`) }}</router-link>
         <router-link to="/about" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_16`, `About`) }}</router-link>
         <router-link to="/service" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_17`, `Service`) }}</router-link>
-        <router-link v-if="false" to="/project" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link>
-        <router-link v-if="false" to="/blog" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link>
+        <router-link v-if="hasPublishedProjects" to="/project" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link>
+        <router-link v-if="hasPublishedBlogs" to="/blog" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link>
         <router-link to="/contact" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_20`, `Contact`) }}</router-link>
         <router-link to="/contact" class="mobile-site-header__cta" @click="mobileMenuOpen = false">{{ _e(`header.vue_1789383437179_21`, `Get A Quote`) }} <i class="bi bi-arrow-right"></i></router-link>
         <div class="mobile-site-header__language"><Switcher /></div>
@@ -118,6 +118,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import Switcher from './switcher.vue';
+import { hasPublishedBlogs, hasPublishedProjects, loadPublishedContent } from '../publishedContent.js';
 
 const isScrolled = ref(false);
 const mobileMenuOpen = ref(false);
@@ -129,6 +130,7 @@ const updateScrollState = () => {
 onMounted(() => {
   updateScrollState();
   window.addEventListener('scroll', updateScrollState, { passive: true });
+  loadPublishedContent();
 });
 
 onBeforeUnmount(() => {
@@ -195,6 +197,14 @@ onBeforeUnmount(() => {
     box-shadow: 0 4px 18px rgba(6, 29, 67, .1);
   }
 
+  .mobile-site-header--scrolled {
+    position: fixed;
+    inset: 0 0 auto;
+    width: 100%;
+    background: #0B2545;
+    animation: menuSlideDown .35s ease both;
+  }
+
   .mobile-site-header__bar {
     display: flex;
     align-items: center;
@@ -232,6 +242,11 @@ onBeforeUnmount(() => {
     background: #fff;
   }
 
+  .mobile-site-header--scrolled .mobile-site-header__nav {
+    border-top-color: rgba(255, 255, 255, .18);
+    background: #0B2545;
+  }
+
   .mobile-site-header__nav > a {
     display: flex;
     align-items: center;
@@ -247,6 +262,12 @@ onBeforeUnmount(() => {
     color: #0B2545;
   }
 
+  .mobile-site-header--scrolled .mobile-site-header__nav > a,
+  .mobile-site-header--scrolled .mobile-site-header__nav > a.router-link-active {
+    border-bottom-color: rgba(255, 255, 255, .18);
+    color: #fff;
+  }
+
   .mobile-site-header__nav .mobile-site-header__cta {
     justify-content: center;
     gap: 8px;
@@ -255,6 +276,11 @@ onBeforeUnmount(() => {
     border-radius: 0;
     color: #fff;
     background: #0B2545;
+  }
+
+  .mobile-site-header--scrolled .mobile-site-header__nav .mobile-site-header__cta {
+    color: #0B2545;
+    background: #F4F1EA;
   }
 
   .mobile-site-header__language {

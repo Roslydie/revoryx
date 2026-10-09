@@ -89,7 +89,7 @@ onMounted(() => loadProject(route.params.slug));
 .single-project__back { display: inline-block; margin-bottom: 38px; color: #fff; font-weight: 700; }
 .single-project__back i { margin-right: 8px; }
 .project-kicker { margin: 0 0 13px; color: #0B2545; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-.single-project-hero .project-kicker { color: #65d5a0; }
+.single-project-hero .project-kicker { color: #616161; }
 .single-project-hero h1 { max-width: 900px; margin: 0 0 18px; color: #fff; font-size: clamp(40px, 6vw, 72px); line-height: 1.08; }
 .single-project-hero p:not(.project-kicker) { max-width: 700px; margin: 0; color: rgba(255, 255, 255, .82); font-size: 19px; line-height: 1.7; }
 .single-project-body { background: #fff; }

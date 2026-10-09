@@ -21,8 +21,8 @@
                             <li><router-link to="/">{{ _e(`header.vue_1789383437179_15`, `Home`) }}</router-link></li>
                             <li><router-link to="/about">{{ _e(`header.vue_1789383437179_16`, `About`) }}</router-link></li>
                             <li><router-link to="/service">{{ _e(`header.vue_1789383437179_17`, `Service`) }}</router-link></li>
-                            <li v-if="false"><router-link to="/project">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link></li>
-                            <li v-if="false"><router-link to="/blog">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link></li>
+                            <li v-if="hasPublishedProjects"><router-link to="/project">{{ _e(`header.vue_1789383437179_18`, `Project`) }}</router-link></li>
+                            <li v-if="hasPublishedBlogs"><router-link to="/blog">{{ _e(`header.vue_1789383437179_19`, `Blog`) }}</router-link></li>
                             <li><router-link to="/contact">{{ _e(`header.vue_1789383437179_20`, `Contact`) }}</router-link></li>
                         </ul>
                     </nav>
@@ -59,15 +59,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { getCurrentLocale } from '../../plugins/i18n.js';
 import { postData } from '../../plugins/axios.js';
+import { hasPublishedBlogs, hasPublishedProjects, loadPublishedContent } from '../publishedContent.js';
 
 const currentYear = new Date().getFullYear();
 const newsletterEmail = ref('');
 const newsletterLoading = ref(false);
 const newsletterMessage = ref('');
 const newsletterError = ref('');
+
+onMounted(() => loadPublishedContent());
 
 const subscribeToNewsletter = async () => {
     newsletterLoading.value = true;

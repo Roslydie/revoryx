@@ -107,7 +107,7 @@ onMounted(() => loadBlog(route.params.slug));
 .single-blog__back i { margin-right: 8px; }
 .single-blog__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 .single-blog__tags span { padding: 5px 10px; border: 1px solid rgba(255, 255, 255, .35); color: #fff; font-size: 12px; }
-.single-blog-kicker { margin: 0 0 12px; color: #65d5a0; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.single-blog-kicker { margin: 0 0 12px; color: #616161; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
 .single-blog-hero h1 { max-width: 900px; margin: 0 0 22px; color: #fff; font-size: clamp(38px, 6vw, 70px); line-height: 1.08; }
 .single-blog__meta { display: flex; flex-wrap: wrap; gap: 22px; color: rgba(255, 255, 255, .8); font-size: 14px; }
 .single-blog-body { background: #fff; }

@@ -218,17 +218,17 @@ ul {
 }
 
 *::-moz-selection {
-  background: #4fc1f0;
+  background: #0B2545;
   color: #454545;
   text-shadow: none;
 }
 ::-moz-selection {
-  background: #4fc1f0;
+  background: #0B2545;
   color: #454545;
   text-shadow: none;
 }
 ::selection {
-  background: #4fc1f0;
+  background: #0B2545;
   color: #454545;
   text-shadow: none;
 }

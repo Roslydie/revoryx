@@ -410,8 +410,7 @@
     </div>
 
 
-    <template v-if="false">
-    <section class="case_study_area home-projects pt-80" id="portfolio">
+    <section v-if="homeProjectsLoading || homeProjectsError || recentProjects.length" class="case_study_area home-projects pt-80" id="portfolio">
       <div class="container-fluid">
         <div class="row">
           <!-- Start Section Tile -->
@@ -461,7 +460,6 @@
         </div>
       </div>
     </section>
-    </template>
     <!--==================================================-->
     <!----- End Techno Case Study Area ----->
     <!--==================================================-->
@@ -556,45 +554,77 @@
     <!--==================================================-->
     <section class="testimonial_area home-testimonials pt-80 pb-70">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section_title text_center mb-60 mt-3">
-              <div class="section_sub_title uppercase mb-3">
-                <h6>{{ _e(`home.vue_1789384786152_99`, `TESTIMONIAL`) }}</h6>
+        <template v-if="publishedTestimonials.length">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="section_title text_center mb-60 mt-3">
+                <div class="section_sub_title uppercase mb-3">
+                  <h6>{{ _e(`home.vue_1789384786152_99`, `TESTIMONIAL`) }}</h6>
+                </div>
+                <div class="section_main_title">
+                  <h1>{{ _e(`home.vue_1789384786152_100`, `What Says`) }}</h1>
+                  <h1>{{ _e(`home.vue_1789384786152_101`, `Our Happy Clients`) }}</h1>
+                </div>
               </div>
-              <div class="section_main_title">
-                <h1>{{ _e(`home.vue_1789384786152_100`, `What Says`) }}</h1>
-                <h1>{{ _e(`home.vue_1789384786152_101`, `Our Happy Clients`) }}</h1>
-              </div>
-              
             </div>
           </div>
-        </div>
-        <div v-if="homeTestimonialsLoading" class="home-testimonials__state"> {{ _e(`home.vue_1789384786152_102`, `Loading testimonials...`) }} </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="testimonial_list owl-carousel curosel-style">
+                <div v-for="testimonial in publishedTestimonials" :key="testimonial.id" class="col-lg-12">
+                  <article class="single_testimonial home-testimonial-card mt-3 mb-5">
+                    <div class="single_testimonial_content">
+                      <div class="single_testimonial_content_text mb-4">
+                        <p>{{ testimonial.message }}</p>
+                      </div>
+                      <div class="single_testimonial_thumb home-testimonial-avatar mt-2 mr-3" aria-hidden="true">
+                        <i class="fa fa-user"></i>
+                      </div>
+                      <div class="single_testimonial_content_title mt-4">
+                        <h4>{{ testimonial.prenom }} {{ testimonial.nom }}</h4>
+                        <span>Client</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+        <div v-else-if="homeTestimonialsLoading" class="home-testimonials__state"> {{ _e(`home.vue_1789384786152_102`, `Loading testimonials...`) }} </div>
         <div v-else-if="homeTestimonialsError" class="home-testimonials__state home-testimonials__state--error">{{ homeTestimonialsError }}</div>
-        <div v-else-if="!publishedTestimonials.length" class="home-testimonials__state"> {{ _e(`home.vue_1789384786152_103`, `No published testimonials are available yet.`) }} </div>
-        <div v-else class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="testimonial_list owl-carousel curosel-style">
-              <div v-for="testimonial in publishedTestimonials" :key="testimonial.id" class="col-lg-12">
-                <article class="single_testimonial home-testimonial-card mt-3 mb-5">
-                  <div class="single_testimonial_content">
-                    <div class="single_testimonial_content_text mb-4">
-                      <p>{{ testimonial.message }}</p>
-                    </div>
-                    <div class="single_testimonial_thumb home-testimonial-avatar mt-2 mr-3" aria-hidden="true">
-                      <i class="fa fa-user"></i>
-                    </div>
-                    <div class="single_testimonial_content_title mt-4">
-                      <h4>{{ testimonial.prenom }} {{ testimonial.nom }}</h4>
-                      <span>Client</span>
-                    </div>
-                  </div>
-                </article>
+        <template v-else>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="section_title text_center mb-60 mt-3">
+                <div class="section_sub_title uppercase mb-3">
+                  <h6>{{ _e(`home.vue_1789384786152_114`, `WHAT WE DON'T DO`) }}</h6>
+                </div>
+                <div class="section_main_title">
+                  <h1>{{ _e(`home.vue_1789384786152_115`, `What you won't find here`) }}</h1>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="testimonial_list owl-carousel curosel-style">
+                <div v-for="item in whatWeDontDo" :key="item.titleKey" class="col-lg-12">
+                  <article class="single_testimonial home-testimonial-card home-non-offer-card mt-3 mb-5">
+                    <div class="single_testimonial_content">
+                      <div class="single_testimonial_content_text mb-4">
+                        <p>{{ _e(item.textKey, item.text) }}</p>
+                      </div>
+                      <div class="single_testimonial_content_title mt-4">
+                        <h4>{{ _e(item.titleKey, item.title) }}</h4>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
       </div>
     </section>
     <!--==================================================-->
@@ -606,8 +636,7 @@
     <!--==================================================-->
     <!----- Start Techno Blog Area ----->
     <!--==================================================-->
-    <template v-if="false">
-    <section class="blog_area home-blogs pt-50 pb-45">
+    <section v-if="homeBlogsLoading || homeBlogsError || recentBlogs.length" class="blog_area home-blogs pt-50 pb-45">
       <div class="container">
         <div class="row">
           <div class="col-lg-9">
@@ -659,7 +688,6 @@
         </div>
       </div>
     </section>
-    </template>
     <!--==================================================-->
     <!----- End Techno Blog Area ----->
     <!--==================================================-->
@@ -716,6 +744,26 @@ const homeBlogsError = ref('');
 const publishedTestimonials = ref([]);
 const homeTestimonialsLoading = ref(true);
 const homeTestimonialsError = ref('');
+const whatWeDontDo = [
+  {
+    titleKey: 'home.vue_1789384786152_116',
+    title: 'No buying traffic by the piece',
+    textKey: 'home.vue_1789384786152_117',
+    text: "We don't sell clicks or leads. First, we check what happens to the ones you're already paying for.",
+  },
+  {
+    titleKey: 'home.vue_1789384786152_118',
+    title: 'No new tools to sell you',
+    textKey: 'home.vue_1789384786152_119',
+    text: 'We work with the tools you already have, without forcing any new ones on you.',
+  },
+  {
+    titleKey: 'home.vue_1789384786152_120',
+    title: 'No empty promises',
+    textKey: 'home.vue_1789384786152_121',
+    text: "We don't promise to double your revenue. We calculate what can be recovered, then measure it.",
+  },
+];
 const newsletterEmail = ref('');
 const newsletterLoading = ref(false);
 const newsletterMessage = ref('');
@@ -927,6 +975,8 @@ onBeforeUnmount(() => {
 .home-testimonial-avatar { display: grid; place-items: center; width: 64px; height: 64px; margin-left: auto; margin-right: auto; border-radius: 50%; color: #0B2545; background: #fff; font-size: 27px; }
 .home-testimonial-card .single_testimonial_content_title h4 { color: #fff; }
 .home-testimonial-card .single_testimonial_content_title span { color: #65d5a0; }
+.home-non-offer-card .single_testimonial_content_title { width: 100%; }
+.home-non-offer-card .single_testimonial_content_title h4 { margin: 0; }
 .newsletter-area {
   position: relative;
   overflow: hidden;

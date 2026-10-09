@@ -1,9 +1,9 @@
 <template>
     <main class="blog-page">
-        <section class="blog-hero" style="background-image: url('/assets/images/slider/slider-4.jpg');">
+        <section class="blog-hero" style="background-image: url('/assets/images/service_audit.png');">
             <div class="blog-hero__overlay"></div>
             <div class="container blog-hero__content">
-                <p class="blog-kicker">REVORYX &amp; PARTNERS / INSIGHTS</p>
+                <p class="blog-kicker" style="color: #616161;">REVORYX &amp; PARTNERS / INSIGHTS</p>
                 <h1>{{ _e(`blog.vue_1789431937005_101`, `Ideas for building what comes next`) }}</h1>
                 <p> {{ _e(`blog.vue_1789431937005_102`, `Practical perspectives on technology, digital growth and the decisions that move organizations forward.`) }} </p>
             </div>
